@@ -1,3 +1,4 @@
+import { CTASection } from "../components/cta-section"
 import { CustomerRatingSection } from "../components/customer-rating-section"
 import { FeatureSection } from "../components/feature-section"
 import { HeroSection } from "../components/hero-section"
@@ -11,6 +12,7 @@ export default function Home() {
         <FeatureSection />
         <SupportSection />
         <CustomerRatingSection />
+        <CTASection />
       </article>
     </>
   )
