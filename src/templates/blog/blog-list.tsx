@@ -1,8 +1,9 @@
+import { Inbox } from "lucide-react"
 import { useRouter } from "next/router"
-import { allPosts } from "../../../.contentlayer/generated"
 import { Search } from "../../components/search"
 import { PostCard } from "./components/post-card"
 import { PostCardContainer } from "./components/post-card-container"
+import { allPosts } from "../../../.contentlayer/generated"
 
 export function BlogList() {
   const router = useRouter()
@@ -12,7 +13,13 @@ export function BlogList() {
     ? `Resultados de busca para '${query}'`
     : "Dicas e estratégias para impulsionar o seu negócio"
 
-  const posts = allPosts
+  const posts = query
+    ? allPosts.filter((post) =>
+        post.title.toLowerCase().includes(query.toLowerCase())
+      )
+    : allPosts
+
+  const hasPosts = posts.length > 0
 
   return (
     <div className="flex flex-col py-24 flex-grow h-full">
@@ -35,22 +42,34 @@ export function BlogList() {
       </header>
 
       {/* Listagem de posts */}
-      <PostCardContainer>
-        {posts.map((post) => (
-          <PostCard
-            key={post._id}
-            title={post.title}
-            description={post.description}
-            date={new Date(post.date).toLocaleDateString("pt-BR")}
-            slug={post.slug}
-            image={post.image}
-            author={{
-              avatar: post.author.avatar,
-              name: post.author.name,
-            }}
-          />
-        ))}
-      </PostCardContainer>
+      {hasPosts && (
+        <PostCardContainer>
+          {posts.map((post) => (
+            <PostCard
+              key={post._id}
+              title={post.title}
+              description={post.description}
+              date={new Date(post.date).toLocaleDateString("pt-BR")}
+              slug={post.slug}
+              image={post.image}
+              author={{
+                avatar: post.author.avatar,
+                name: post.author.name,
+              }}
+            />
+          ))}
+        </PostCardContainer>
+      )}
+
+      {!hasPosts && (
+        <div className="container px-8">
+          <div className="flex flex-col items-center justify-center gap-8 border-dashed border-2 border-gray-400 p-8 md:p-12 rounded-lg">
+            <Inbox className="h-12 w-12 text-cyan-200" />
+
+            <p className="text-center text-gray-100">Nenhum post encontrado.</p>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
