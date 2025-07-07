@@ -12,7 +12,7 @@ import {
   BreadcrumbSeparator,
 } from "../../components/ui/breadcrumb"
 import { Button } from "../../components/ui/button"
-import { useShare } from "../../hooks"
+import { useShare } from "../../hooks/use-share"
 
 export default function PostPage() {
   const router = useRouter()
@@ -37,7 +37,7 @@ export default function PostPage() {
   })
 
   return (
-    <main className="mt-32 text-gray-100">
+    <main className="mt-32 mb-16 text-gray-100">
       <div className="container space-y-12 px-4 md:px-8">
         <Breadcrumb>
           <BreadcrumbList>
@@ -96,7 +96,7 @@ export default function PostPage() {
           </article>
 
           <aside className="space-y-6">
-            <div className="rounded-lg bg-gray-700 p-4 md:p-6 ">
+            <div className="rounded-lg bg-gray-700 md:px-6">
               <h2 className="mb-4 text-heading-xs text-gray-100">
                 Compartilhar
               </h2>
