@@ -58,8 +58,8 @@ export default function PostPage() {
               />
             </figure>
 
-            <header className="p-4 md:p-6 lg:p-12 pb-0 mt-8">
-              <h1 className="mb-8 text-balance text-heading-lg md:text-heading-xl lg:text-heading-xl">
+            <header className="p-8 md:p-10 lg:p-12">
+              <h1 className="mb-6 text-balance text-heading-lg md:text-heading-xl lg:text-heading-xl">
                 {post?.title}
               </h1>
 
@@ -67,19 +67,20 @@ export default function PostPage() {
                 <Avatar.Image
                   src={post?.author.avatar ?? ""}
                   alt={post?.author.name ?? ""}
+                  size="sm"
                 />
 
                 <Avatar.Content>
                   <Avatar.Title>{post?.author.name}</Avatar.Title>
                   <Avatar.Description>
-                    Publicado em
+                    Publicado em{" "}
                     <time dateTime={post?.date}>{publishDate}</time>
                   </Avatar.Description>
                 </Avatar.Content>
               </Avatar.Container>
             </header>
 
-            <div className="prose prose-invert max-w-none px-4 mt-6 pb-6 md:px-6 lg:px-12">
+            <div className="prose prose-invert max-w-none px-8 md:px-10 lg:px-12 pb-2">
               <Markdown content={post.body.raw} />
             </div>
           </article>
