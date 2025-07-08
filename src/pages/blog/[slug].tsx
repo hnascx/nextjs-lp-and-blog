@@ -1,9 +1,35 @@
-// import { PostPage as Post } from "@/templates/blog"
+import { PostPage as Post, type PostPageProps } from "@/templates/blog"
+import { GetStaticPaths, GetStaticProps } from "next"
+import { allPosts } from "../../../.contentlayer/generated"
 
-export default function PostPage() {
-  return (
-    <div>
-      <h1>Title</h1>
-    </div>
-  )
+export default function PostPage({ post }: PostPageProps) {
+  return <Post post={post} />
 }
+
+export const getStaticPaths = (async () => {
+  const sortedPosts = allPosts.sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  )
+
+  const recentPosts = sortedPosts.slice(0, 5)
+
+  const paths = recentPosts.map((post) => ({
+    params: { slug: post.slug },
+  }))
+
+  return { paths, fallback: "blocking" }
+}) satisfies GetStaticPaths
+
+export const getStaticProps = (async (context) => {
+  const { slug } = context.params as { slug: string }
+
+  const post = allPosts.find((post) => post.slug === slug)
+
+  if (!post) {
+    return { notFound: true }
+  }
+
+  return {
+    props: { post },
+  }
+}) satisfies GetStaticProps

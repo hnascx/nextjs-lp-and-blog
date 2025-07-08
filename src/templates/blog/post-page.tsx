@@ -1,7 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { useRouter } from "next/router"
-import { allPosts } from "../../../.contentlayer/generated"
+import { Post } from "../../../.contentlayer/generated"
 import { Avatar } from "../../components/avatar"
 import { Markdown } from "../../components/markdown"
 import {
@@ -14,21 +13,18 @@ import {
 import { Button } from "../../components/ui/button"
 import { useShare } from "../../hooks/use-share"
 
-export const PostPage = () => {
-  const router = useRouter()
-  const slug = router.query.slug as string
+export type PostPageProps = {
+  post: Post
+}
 
-  const post = allPosts.find(
-    (post) => post.slug.toLowerCase() === slug.toLowerCase()
-  )!
-
+export const PostPage = ({ post }: PostPageProps) => {
   const publishDate = new Date(post?.date ?? "").toLocaleDateString("pt-BR", {
     day: "2-digit",
     month: "long",
     year: "numeric",
   })
 
-  const postUrl = `https://site.set/blog/${slug}`
+  const postUrl = `https://site.set/blog/${post.slug}`
 
   const { shareButtons } = useShare({
     url: postUrl,
@@ -110,9 +106,7 @@ export const PostPage = () => {
                     className="h-12 md:w-full justify-start gap-2"
                   >
                     {provider.icon}
-                    <span className="hidden md:block">
-                      {provider.name}
-                    </span>
+                    <span className="hidden md:block">{provider.name}</span>
                   </Button>
                 ))}
               </div>

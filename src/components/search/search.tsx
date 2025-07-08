@@ -47,7 +47,7 @@ export const Search = () => {
         value={query}
         onChange={handleQueryChange}
         className="w-full h-10 md:w-60 bg-transparent border border-gray-400 pl-9 text-gray-100 rounded-md text-body-sm outline-none transition-all duration-200 focus-within:border-blue-300 focus-within:ring-1 focus-within:ring-blue-300 placeholder:text-gray-300 placeholder:text-body-sm"
-        placeholder="Buscar"
+        placeholder="Buscar por título"
       />
 
       {query && (
