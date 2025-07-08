@@ -69,7 +69,7 @@ export const PostPage = () => {
             </figure>
 
             <header className="p-8 md:p-10 lg:p-12">
-              <h1 className="mb-6 text-balance text-heading-lg md:text-heading-xl lg:text-heading-xl">
+              <h1 className="mb-6 text-balance text-heading-lg">
                 {post?.title}
               </h1>
 
