@@ -33,7 +33,7 @@ Before you begin, ensure you have installed:
 1. Clone the repository:
 
 ```bash
-git clone [https://github.com/hnascx/nextjs-lp-and-blog.git]
+git clone https://github.com/hnascx/nextjs-lp-and-blog.git
 cd nextjs-lp-and-blog
 ```
 
