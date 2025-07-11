@@ -1,40 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Next.js Landing Page & Blog
+
+A modern, performant landing page and blog built with Next.js, featuring server-side rendering, static site generation, and dynamic content management.
+
+## Features
+
+- 🚀 Modern Landing Page with multiple sections
+  - Hero Section
+  - Feature Section
+  - Customer Rating Section
+  - Support Section
+  - CTA Section
+- 📝 Blog functionality
+  - Markdown support
+  - Static and dynamic rendering options
+  - Post sharing capabilities
+  - Search functionality
+- 🎨 Styled with Tailwind CSS
+- 📱 Fully responsive design
+- 🔍 SEO optimized
+- 🖼️ Image optimization with Next.js
+- 🔄 Multiple rendering strategies (SSR, SSG, ISR)
+
+## Prerequisites
+
+Before you begin, ensure you have installed:
+
+- Node.js (v18 or higher)
+- pnpm (recommended) or npm or yarn
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+git clone [https://github.com/hnascx/nextjs-lp-and-blog.git]
+cd nextjs-lp-and-blog
+```
+
+2. Install dependencies:
+
+```bash
+pnpm install
+```
+
+3. Run the development server:
+
+```bash
 pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```
+nextjs-lp-and-blog/
+├── src/
+│   ├── app/              # App Router components
+│   ├── components/       # Reusable components
+│   ├── hooks/           # Custom React hooks
+│   ├── lib/             # Utility functions
+│   ├── pages/           # Pages Router components
+│   ├── styles/          # Global styles
+│   └── templates/       # Page templates
+├── posts/              # Blog post markdown files
+├── public/             # Static assets
+└── [config files]      # Various configuration files
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+## Available Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `pnpm dev` - Runs the development server
+- `pnpm build` - Creates a production build
+- `pnpm start` - Runs the production server
+- `pnpm lint` - Runs ESLint for code linting
 
-## Learn More
+## Blog Posts
 
-To learn more about Next.js, take a look at the following resources:
+Blog posts are written in Markdown format and stored in the `posts/` directory. Each post should include:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+- Frontmatter with metadata
+- Featured image
+- Post content in Markdown
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deployment
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+This project is optimized for deployment on Vercel. For deployment instructions, visit [Next.js deployment documentation](https://nextjs.org/docs/deployment).

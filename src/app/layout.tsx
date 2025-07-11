@@ -5,6 +5,11 @@ import { Layout } from "../components/layout"
 export const metadata: Metadata = {
   title: "Site.Set",
   description: "Venda seus produtos como afiliado em um único lugar",
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
   openGraph: {
     title: "Site.Set",
     description: "Venda seus produtos como afiliado em um único lugar",
